@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Unblocker</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0e0e0e;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      max-width: 500px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 15px;
+      font-size: 16px;
+      background-color: #1f1f1f;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔓 Welcome to My Proxy</h1>
+  <form id="proxyForm">
+    <input id="urlInput" placeholder="Enter a URL or search..." required />
+    <button type="submit">Go</button>
+  </form>
+
+  <script>
+    document.getElementById("proxyForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const input = document.getElementById("urlInput").value;
+      const url = input.startsWith("http") ? input : "https://www.google.com/search?q=" + encodeURIComponent(input);
+      location.href = "/service/" + btoa(url);  // Encode & redirect to proxy
+    });
+  </script>
+</body>
+</html>
