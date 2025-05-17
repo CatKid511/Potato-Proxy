@@ -1,0 +1,7 @@
+/potato-proxy/
+├── public/
+│   └── index.html       ← Frontend UI
+├── ultraviolet/         ← Proxy engine (Ultraviolet)
+│   └── (clone from GitHub)
+├── server.js            ← Node.js express server
+├── package.json
