@@ -1,0 +1,5 @@
+git clone https://github.com/titaniumnetwork-dev/Ultraviolet.git ultraviolet
+cd ultraviolet
+npm install
+npm run build
+cd ..
