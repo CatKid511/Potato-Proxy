@@ -116,35 +116,35 @@
 
   <script>
     const apps = [
-      ['Poki', 'https://poki.com'],
-      ['CrazyGames', 'https://crazygames.com'],
-      ['Now.gg', 'https://now.gg'],
-      ['Y8 Games', 'https://y8.com'],
-      ['Hypackel', 'https://hypackel.com'],
-      ['TBG95', 'https://tbg95.github.io'],
-      ['3kh0', 'https://3kh0.github.io'],
-      ['Titanium Network', 'https://github.com/titaniumnetwork-dev'],
-      ['Alloy Proxy', 'https://alloyproxy.org'],
-      ['Interstellar Proxy', 'https://interstellar.cx'],
-      ['Nebula Proxy', 'https://nebulaproxy.io'],
-      ['Tsunami Proxy', 'https://tsunamiproxy.com'],
-      ['Google Sites Proxy', 'https://sites.google.com/site/unblockedgames33/'],
-      ['Unblocked Games Premium', 'https://sites.google.com/site/unblockedgamespremium/'],
-      ['Unblocked Games WTF', 'https://sites.google.com/site/thegamecompilation'],
-      ['Deep Seek', 'https://deepseek.com'],
-      ['ChatGPT', 'https://chat.openai.com'],
-      ['YouTube', 'https://youtube.com'],
-      ['Google Games', 'https://sites.google.com/view/classroomgames'],
-      ['Gameflare', 'https://www.gameflare.com']
+      ['Poki', 'https://poki.com', 'https://upload.wikimedia.org/wikipedia/commons/7/74/Poki_logo.png'],
+      ['CrazyGames', 'https://crazygames.com', 'https://images.crazygames.com/favicon/apple-touch-icon.png'],
+      ['Now.gg', 'https://now.gg', 'https://images.now.gg/images/social-share.jpg'],
+      ['Y8 Games', 'https://y8.com', 'https://img.y8.com/assets/logo_big-5b9b19103b6cf8e89ad080b65e3f40df1c4c2d847a2a42e8fc4b9efc10c0f6fe.png'],
+      ['Hypackel', 'https://hypackel.com', 'https://hypackel.com/favicon.ico'],
+      ['TBG95', 'https://tbg95.github.io', 'https://tbg95.github.io/assets/images/icon.png'],
+      ['3kh0', 'https://3kh0.github.io', 'https://3kh0.github.io/img/logo.png'],
+      ['Titanium Network', 'https://github.com/titaniumnetwork-dev', 'https://avatars.githubusercontent.com/u/83482199?s=200&v=4'],
+      ['Alloy Proxy', 'https://alloyproxy.org', 'https://alloyproxy.org/logo.png'],
+      ['Interstellar Proxy', 'https://interstellar.cx', 'https://interstellar.cx/logo.png'],
+      ['Nebula Proxy', 'https://nebulaproxy.io', 'https://nebulaproxy.io/favicon.ico'],
+      ['Tsunami Proxy', 'https://tsunamiproxy.com', 'https://tsunamiproxy.com/assets/images/icon.png'],
+      ['Google Sites Proxy', 'https://sites.google.com/site/unblockedgames33/', 'https://ssl.gstatic.com/sites/p/95b54c/system/favicon.ico'],
+      ['Unblocked Games Premium', 'https://sites.google.com/site/unblockedgamespremium/', 'https://ssl.gstatic.com/sites/p/95b54c/system/app/images/logo.png'],
+      ['Unblocked Games WTF', 'https://sites.google.com/site/thegamecompilation', 'https://ssl.gstatic.com/sites/p/95b54c/system/app/images/favicon.ico'],
+      ['Deep Seek', 'https://deepseek.com', 'https://deepseek.com/favicon.ico'],
+      ['ChatGPT', 'https://chat.openai.com', 'https://chat.openai.com/apple-touch-icon.png'],
+      ['YouTube', 'https://youtube.com', 'https://www.youtube.com/s/desktop/30d4e14f/img/favicon_144x144.png'],
+      ['Google Games', 'https://sites.google.com/view/classroomgames', 'https://ssl.gstatic.com/sites/p/95b54c/system/app/images/favicon.ico'],
+      ['Gameflare', 'https://www.gameflare.com', 'https://www.gameflare.com/themes/gameflare/favicon.ico']
     ];
 
     const grid = document.getElementById('appGrid');
-    apps.forEach(([name, url]) => {
+    apps.forEach(([name, url, img]) => {
       const encoded = btoa(url);
       const div = document.createElement('div');
       div.className = 'app';
       div.innerHTML = `
-        <img src="https://www.google.com/s2/favicons?domain=${new URL(url).hostname}&sz=128" alt="${name}" style="width: 100%; height: 200px; object-fit: contain; background: white;">
+        <img src="${img}" alt="${name}" style="width: 100%; height: 200px; object-fit: cover; background: white;">
         <div>${name}</div>
       `;
       grid.appendChild(div);
@@ -153,6 +153,6 @@
 </body>
 </html>
 
-
-    
+     
+   
  
