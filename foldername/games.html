@@ -94,6 +94,22 @@
       font-size: 14px;
       display: block;
     }
+
+    .iframe-wrapper {
+      margin-top: 40px;
+      width: 100%;
+      height: 600px;
+      background: #1f1f1f;
+      border: 2px solid #00ffc3;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
   </style>
 </head>
 <body>
@@ -110,6 +126,9 @@
   <div class="main">
     <h1>Games</h1>
     <div class="grid" id="gameGrid"></div>
+    <div class="iframe-wrapper" id="iframeWrapper" style="display: none;">
+      <iframe id="gameFrame"></iframe>
+    </div>
   </div>
 
   <script>
@@ -125,38 +144,21 @@
       ['Crossy Road', 'https://crossyroad.com'],
       ['BitLife', 'https://bitlifeonline.com'],
       ['Tanuki Sunset', 'https://tanuki-sunset.com'],
-      ['Geometry Dash', 'https://geometrydash.io'],
-      ['Moto X3M', 'https://moto-x3m.io'],
-      ['Snow Rider 3D', 'https://snowrider3d.com'],
-      ['Idle Breakout', 'https://idlebreakout.io'],
-      ['Minecraft Classic', 'https://classic.minecraft.net'],
-      ['World’s Hardest Game', 'https://worldshardestgame.io'],
-      ['FNAF', 'https://fnafgame.io'],
-      ['Tetris', 'https://tetris.com'],
-      ['Paper.io 2', 'https://paper-io.com'],
-      ['Stickman Hook', 'https://stickmanhook.io'],
-      ['Zombs Royale', 'https://zombsroyale.io'],
-      ['Tunnel Rush', 'https://tunnelrush.org'],
-      ['DogeMiner', 'https://dogeminer.biz'],
-      ['Basket Random', 'https://basketrandom.com'],
-      ['GBA Emulator', 'https://gba.ninja'],
-      ['2048', 'https://play2048.co'],
-      ['Jetpack Joyride', 'https://jetpackjoyride.org'],
-      ['Friday Night Funkin', 'https://fridaynightfunkin.io'],
-      ['Smash Karts', 'https://smashkarts.io'],
-      ['Drift Hunters', 'https://drifthunters.com'],
-      ['Tyrone Unblocked', 'https://tyroneunblockedgames.com'],
-      ['Google Snake', 'https://playsnake.org'],
-      ['Super Mario Bros', 'https://supermarioemulator.com'],
+      ['Geometry Dash', 'https://geometrydash.io']
     ];
 
     const grid = document.getElementById('gameGrid');
+    const frame = document.getElementById('gameFrame');
+    const wrapper = document.getElementById('iframeWrapper');
+
     games.forEach(([name, url]) => {
       const card = document.createElement('div');
       card.className = 'game';
       card.onclick = () => {
         const encoded = btoa(url);
-        window.location.href = '/service/' + encoded;
+        frame.src = "/service/" + encoded;
+        wrapper.style.display = 'block';
+        window.scrollTo({ top: wrapper.offsetTop, behavior: 'smooth' });
       };
       card.innerHTML = `
         <img src="https://www.google.com/s2/favicons?domain=${new URL(url).hostname}" alt="${name}" />
@@ -165,5 +167,11 @@
       grid.appendChild(card);
     });
   </script>
+
 </body>
 </html>
+
+
+  
+    
+    
