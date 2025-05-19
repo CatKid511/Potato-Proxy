@@ -3,32 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <title>Games | Potato Proxy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #121212;
+      background: #050b2c;
       color: white;
       display: flex;
+      overflow: hidden;
     }
-
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
     .sidebar {
       width: 220px;
       height: 100vh;
       background: #1f1f1f;
       padding-top: 30px;
       box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+      z-index: 1;
     }
-
     .sidebar h2 {
       color: white;
       text-align: center;
       font-size: 20px;
       margin-bottom: 30px;
     }
-
     .nav-link {
       display: flex;
       align-items: center;
@@ -38,140 +45,152 @@
       font-size: 16px;
       transition: background 0.2s;
     }
-
     .nav-link:hover {
       background: #00ffc3;
       color: #000;
     }
-
     .nav-link .material-icons {
       margin-right: 15px;
       font-size: 20px;
     }
-
     .main {
       flex-grow: 1;
       padding: 40px;
+      z-index: 1;
     }
-
     .main h1 {
       text-align: center;
       color: #00ffc3;
       margin-bottom: 40px;
     }
-
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 20px;
-      justify-items: center;
     }
-
     .game {
       background: #1f1f1f;
-      color: white;
       border-radius: 10px;
-      padding: 20px 10px;
-      max-width: 150px;
-      text-align: center;
-      cursor: pointer;
-      transition: background 0.2s;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 255, 195, 0.2);
+      transition: transform 0.2s, background 0.3s;
     }
-
     .game:hover {
+      transform: scale(1.03);
       background: #00ffc3;
       color: black;
     }
-
-    .game img {
-      width: 64px;
-      height: 64px;
-      margin-bottom: 10px;
-      border-radius: 6px;
-    }
-
-    .game span {
-      font-size: 14px;
-      display: block;
-    }
-
-    .iframe-wrapper {
-      margin-top: 40px;
+    .game iframe {
       width: 100%;
-      height: 600px;
-      background: #1f1f1f;
-      border: 2px solid #00ffc3;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
+      height: 300px;
       border: none;
+      background: #000;
+    }
+    .game div {
+      padding: 10px;
+      text-align: center;
+      font-size: 16px;
     }
   </style>
 </head>
 <body>
-
+  <div id="particles-js"></div>
   <div class="sidebar">
     <h2>🥔 Potato Proxy</h2>
     <a class="nav-link" href="/index.html"><span class="material-icons">home</span> Proxy</a>
     <a class="nav-link" href="/movies.html"><span class="material-icons">movie</span> Movies</a>
-    <a class="nav-link" href="/bookmarks.html"><span class="material-icons">bookmarks</span> Bookmarks</a>
     <a class="nav-link" href="/apps.html"><span class="material-icons">apps</span> Apps</a>
     <a class="nav-link" href="/games.html"><span class="material-icons">sports_esports</span> Games</a>
+    <a class="nav-link" href="/settings.html"><span class="material-icons">settings</span> Settings</a>
   </div>
-
   <div class="main">
     <h1>Games</h1>
-    <div class="grid" id="gameGrid"></div>
-    <div class="iframe-wrapper" id="iframeWrapper" style="display: none;">
-      <iframe id="gameFrame"></iframe>
+    <div class="grid">
+      <div class="game"><iframe src="/games/1v1lol/index.html"></iframe><div>1v1.LOL</div></div>
+      <div class="game"><iframe src="/games/drive-mad/index.html"></iframe><div>Drive Mad</div></div>
+      <div class="game"><iframe src="/games/retro-bowl/index.html"></iframe><div>Retro Bowl</div></div>
+      <div class="game"><iframe src="/games/bitlife/index.html"></iframe><div>BitLife</div></div>
+      <div class="game"><iframe src="/games/slope/index.html"></iframe><div>Slope</div></div>
+      <div class="game"><iframe src="/games/moto-x3m/index.html"></iframe><div>Moto X3M</div></div>
+      <div class="game"><iframe src="/games/duck-life-4/index.html"></iframe><div>Duck Life 4</div></div>
+      <div class="game"><iframe src="/games/sm64/index.html"></iframe><div>Super Mario 64</div></div>
+      <div class="game"><iframe src="/games/subway-surfers/index.html"></iframe><div>Subway Surfers</div></div>
+      <div class="game"><iframe src="/games/basket-random/index.html"></iframe><div>Basket Random</div></div>
+      <div class="game"><iframe src="/games/cluster-rush/index.html"></iframe><div>Cluster Rush</div></div>
+      <div class="game"><iframe src="/games/temple-run-2/index.html"></iframe><div>Temple Run 2</div></div>
+      <div class="game"><iframe src="/games/cookie-clicker/index.html"></iframe><div>Cookie Clicker</div></div>
+      <div class="game"><iframe src="/games/tunnel-rush/index.html"></iframe><div>Tunnel Rush</div></div>
+      <div class="game"><iframe src="/games/worlds-hardest-game/index.html"></iframe><div>World's Hardest Game</div></div>
+      <div class="game"><iframe src="/games/fireboy-and-watergirl/index.html"></iframe><div>Fireboy & Watergirl</div></div>
+      <div class="game"><iframe src="/games/vex-7/index.html"></iframe><div>Vex 7</div></div>
+      <div class="game"><iframe src="/games/rooftop-snipers/index.html"></iframe><div>Rooftop Snipers</div></div>
+      <div class="game"><iframe src="/games/geometry-dash/index.html"></iframe><div>Geometry Dash</div></div>
+      <div class="game"><iframe src="/games/among-us/index.html"></iframe><div>Among Us</div></div>
+      <div class="game"><iframe src="/games/minecraft-classic/index.html"></iframe><div>Minecraft Classic</div></div>
+      <div class="game"><iframe src="/games/2048/index.html"></iframe><div>2048</div></div>
+      <div class="game"><iframe src="/games/paper-io-2/index.html"></iframe><div>Paper.io 2</div></div>
+      <div class="game"><iframe src="/games/just-fall/index.html"></iframe><div>JustFall.LOL</div></div>
+      <div class="game"><iframe src="/games/bad-ice-cream/index.html"></iframe><div>Bad Ice Cream</div></div>
+      <div class="game"><iframe src="/games/boxing-random/index.html"></iframe><div>Boxing Random</div></div>
+      <div class="game"><iframe src="/games/fnaf-1/index.html"></iframe><div>Five Nights at Freddy's</div></div>
+      <div class="game"><iframe src="/games/getaway-shootout/index.html"></iframe><div>Getaway Shootout</div></div>
+      <div class="game"><iframe src="/games/crossy-road/index.html"></iframe><div>Crossy Road</div></div>
+      <div class="game"><iframe src="/games/snow-rider-3d/index.html"></iframe><div>Snow Rider 3D</div></div>
+      <div class="game"><iframe src="/games/idle-breakout/index.html"></iframe><div>Idle Breakout</div></div>
+      <div class="game"><iframe src="/games/stack/index.html"></iframe><div>Stack</div></div>
+      <div class="game"><iframe src="/games/gun-mayhem-2/index.html"></iframe><div>Gun Mayhem 2</div></div>
+      <div class="game"><iframe src="/games/zombs-royale/index.html"></iframe><div>Zombs Royale</div></div>
+      <div class="game"><iframe src="/games/bob-the-robber/index.html"></iframe><div>Bob The Robber</div></div>
+      <div class="game"><iframe src="/games/monkey-mart/index.html"></iframe><div>Monkey Mart</div></div>
+$1
+      <!-- These should be replaced with actual game paths later -->
+      <!-- You can replace these paths with real games in your /games folder -->
+      <!-- Format: /games/game-number/index.html -->
+      <!-- Example below -->
+      <!-- Begin filler -->
+      
+      <!-- End filler -->
     </div>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    const games = [
-      ['1v1.lol', 'https://1v1.lol'],
-      ['Retro Bowl', 'https://retrobowl.app'],
-      ['Subway Surfers', 'https://subwaysurfers.io'],
-      ['Cookie Clicker', 'https://cookieclicker.io'],
-      ['Slope', 'https://slopegame.io'],
-      ['Run 3', 'https://run3.io'],
-      ['Shell Shockers', 'https://shellshock.io'],
-      ['Basket Bros', 'https://basketbros.io'],
-      ['Crossy Road', 'https://crossyroad.com'],
-      ['BitLife', 'https://bitlifeonline.com'],
-      ['Tanuki Sunset', 'https://tanuki-sunset.com'],
-      ['Geometry Dash', 'https://geometrydash.io']
-    ];
-
-    const grid = document.getElementById('gameGrid');
-    const frame = document.getElementById('gameFrame');
-    const wrapper = document.getElementById('iframeWrapper');
-
-    games.forEach(([name, url]) => {
-      const card = document.createElement('div');
-      card.className = 'game';
-      card.onclick = () => {
-        const encoded = btoa(url);
-        frame.src = "/service/" + encoded;
-        wrapper.style.display = 'block';
-        window.scrollTo({ top: wrapper.offsetTop, behavior: 'smooth' });
-      };
-      card.innerHTML = `
-        <img src="https://www.google.com/s2/favicons?domain=${new URL(url).hostname}" alt="${name}" />
-        <span>${name}</span>
-      `;
-      grid.appendChild(card);
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 50, density: { enable: true, value_area: 800 } },
+        color: { value: "#00ffc3" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#00ffc3",
+          opacity: 0.4,
+          width: 1
+        },
+        move: { enable: true, speed: 2 }
+      },
+      interactivity: {
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          repulse: { distance: 100, duration: 0.4 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
     });
   </script>
-
 </body>
 </html>
 
-
+     
+    
+    
+    
   
     
     
