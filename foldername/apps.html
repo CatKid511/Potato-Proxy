@@ -1,4 +1,4 @@
-# Rewriting apps.html exactly as requested with /service/ encoding and proper styles
+# Re-run due to code execution reset: recreate the zip with the corrected Steam entry
 from zipfile import ZipFile
 from pathlib import Path
 
@@ -18,11 +18,12 @@ apps = [
     ("ChatGPT", "https://chat.openai.com/apple-touch-icon.png", "https://chat.openai.com"),
     ("DeepSeek", "https://deepseek.com/favicon.ico", "https://deepseek.com"),
     ("Hypackel", "https://hypackel.com/favicon.ico", "https://hypackel.com"),
+    ("Steam", "https://cdn.cloudflare.steamstatic.com/store/home/store_home_share.jpg", "https://store.steampowered.com"),
 ] * 3
 
 apps = apps[:40]
 
-cards = "\n".join([
+tiles = "\n".join([
     f'''
     <div class="app" onclick="launchApp('{url}')">
       <img src="{img}" alt="{name}">
@@ -137,7 +138,7 @@ html = f"""<!DOCTYPE html>
   <div class="main">
     <h1>Apps</h1>
     <div class="grid">
-      {cards}
+      {tiles}
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
@@ -180,8 +181,8 @@ html = f"""<!DOCTYPE html>
 </html>
 """
 
-# Save to zip
-zip_path = Path("/mnt/data/apps_final_rewritten.zip")
+# Save final fixed version
+zip_path = Path("/mnt/data/apps_fixed_steam.zip")
 with ZipFile(zip_path, "w") as zipf:
     html_file = Path("/tmp/apps.html")
     html_file.write_text(html)
@@ -189,4 +190,5 @@ with ZipFile(zip_path, "w") as zipf:
 
 zip_path.name
 
+   
   
